@@ -6,3 +6,9 @@
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
+
+@media (min-width: 1024px) {
+.mylarge{
+    max-height: 50%;
+}
+}

@@ -1,13 +1,14 @@
 <div class="flex items-center justify-between px-6 py-3 bg-gray-800 text-white">
     <div class="flex items-center">
       <!-- Left side menubar -->
-      <div class="mr-6">
-        <ul class="flex space-x-4">
-          <li><a href="#" class="hover:underline">Home</a></li>
-          <li><a href="#" class="hover:underline">About</a></li>
-          <li><a href="#" class="hover:underline">Contact</a></li>
-        </ul>
-      </div>
+      <p-menu [model]="items" #menu [popup]="true" (toggleClick)="toggleMobileMenu()">
+        <ng-template pTemplate="start">
+          <button class="p-menu-button-icon" (click)="toggleMobileMenu()">
+            <!-- <i class="pi pi-bars"></i> -->
+          </button>
+        </ng-template>
+      </p-menu>
+      <p-button (onClick)="menu.toggle($event)" icon="pi pi-ellipsis-v"/>
     </div>
   
     <!-- Center search bar -->
@@ -17,7 +18,7 @@
   
     <!-- Right side logo -->
     <div class="ml-6">
-      <img src="path-to-your-logo.png" alt="Logo" class="h-10 w-10 rounded-full">
+      <img src="hk" alt="Logo" class="h-10 w-10 rounded-full">
     </div>
   </div>
   
