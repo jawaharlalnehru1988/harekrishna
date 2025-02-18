@@ -7,10 +7,11 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { ArtExp, Articles } from './articles';
 import {MatListModule} from '@angular/material/list';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  imports: [MatSidenavModule, MatListModule, CdkAccordionModule,  MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [MatSidenavModule, NgClass, MatListModule, CdkAccordionModule,  MatToolbarModule, MatButtonModule, MatIconModule],
   styleUrl: './articles.component.scss'
 })
 export class ArticlesComponent extends Articles {
@@ -18,6 +19,7 @@ export class ArticlesComponent extends Articles {
   expandedIndex = 0;
   subTopicList: ArtExp[] = [];
 projectedContent: SafeHtml = ``;
+  openDrawer: boolean = false;
   constructor(private sanitizer: DomSanitizer) {
     super();
    }
@@ -51,6 +53,8 @@ switch(event){
  
 
   }
-
+  sidenavOpen(){
+   this.openDrawer = !this.openDrawer;
+  }
 
 }

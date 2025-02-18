@@ -1,7 +1,7 @@
 <header>
     <mat-toolbar>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
+          <mat-icon (click)="sidenavOpen()" >menu</mat-icon>
         </button>
         <span>Articles</span>
         <span class="example-spacer"></span>
@@ -14,7 +14,7 @@
       </mat-toolbar>      
 </header>
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+    <mat-drawer mode="side"  [ngClass]="openDrawer ? 'd-show' : 'd-none'" opened>
         
         <cdk-accordion class="example-accordion">
             @for (item of items; track item; let index = $index) {

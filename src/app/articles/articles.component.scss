@@ -53,11 +53,19 @@
 
   mat-drawer-container {
     height: 90vh;
-    overflow-y: scroll;
+
   }
   mat-drawer {
     width: 13em;
-  }
+}
+@media screen and (max-width: 768px) {
+ .d-show{
+    display: block !important;
+ }
+ .d-none{
+    display: none !important;
+ }
+}
 
   mat-drawer-content{
     margin-left: 12px !important;
