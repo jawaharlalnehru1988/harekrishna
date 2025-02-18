@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { CalendarModule } from 'primeng/calendar';
-import { FormsModule } from '@angular/forms';
-import { DatePipe } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { YearlyEvent } from '../../Model/common.model';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [NavbarComponent, CalendarModule, FormsModule, DatePipe],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   images: string[] = [
