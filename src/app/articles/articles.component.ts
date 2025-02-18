@@ -4,21 +4,53 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { ArtExp, Articles } from './articles';
+import {MatListModule} from '@angular/material/list';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  imports: [MatSidenavModule, CdkAccordionModule,  MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [MatSidenavModule, MatListModule, CdkAccordionModule,  MatToolbarModule, MatButtonModule, MatIconModule],
   styleUrl: './articles.component.scss'
 })
-export class ArticlesComponent {
-  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+export class ArticlesComponent extends Articles {
+  items = ['Scientific Proofs', 'Logical Answers', 'Dos and Donts', 'Moral Behaviours', 'Tackling Arguments'];
   expandedIndex = 0;
+  subTopicList: ArtExp[] = [];
+projectedContent: SafeHtml = ``;
+  constructor(private sanitizer: DomSanitizer) {
+    super();
+   }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.projectedContent = this.sanitizer.bypassSecurityTrustHtml(this.articlesExplained[0].article);
+   }
 
-  ngOnInit(): void { }
-
+  topicExpanded(event:string){
   
+switch(event){
+  case 'Scientific Proofs':
+    this.subTopicList = this.articlesExplained;
+    break;
+  case 'Logical Answers':
+    this.subTopicList = this.logicalAnswers;
+    break;
+  case 'Dos and Donts':
+    this.subTopicList = this.dosAndDontsInLife;
+    break;
+  case 'Moral Behaviours':
+    this.subTopicList = this.articlesExplained;
+    break;
+  case 'Tackling Arguments':
+    this.subTopicList = this.articlesExplained;
+    break;
+  default:
+    this.subTopicList = this.articlesExplained;
+    break;
+}
+ 
+
+  }
 
 
 }
