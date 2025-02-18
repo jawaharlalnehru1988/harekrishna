@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MenuItem } from 'primeng/api';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { MenuModule } from 'primeng/menu';
+
 @Component({
   selector: 'navbar',
   standalone: true,
-  imports: [InputTextModule, MenuModule, ButtonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
   value:string = "";
-  items: MenuItem[] = [];
+  items: any[] = [];
 
   ngOnInit() {
     this.items = [
